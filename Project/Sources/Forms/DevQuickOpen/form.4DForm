@@ -116,6 +116,7 @@
 					"height": 309,
 					"events": [
 						"onClick",
+						"onDoubleClick",
 						"onAlternateClick"
 					],
 					"listboxType": "collection",
@@ -270,6 +271,6 @@
 		}
 	],
 	"method": "method.4dm",
-	"geometryStamp": 341,
+	"geometryStamp": 342,
 	"formSizeAnchor": "SearchBackground"
 }
