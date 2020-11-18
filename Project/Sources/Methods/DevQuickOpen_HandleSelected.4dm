@@ -69,6 +69,7 @@ If (Form:C1466.lbResults.currentItem#Null:C1517)  //Make sure an item is selecte
 		: ($oItem.type="Form")
 			If ($fOptionDown=False:C215)
 				  //FORM EDIT($oItem.name)  //Available in v18 R5
+				  //CANCEL
 				ALERT:C41("Forms can't be opened until v18 R5. Change code in DevQuickOpen_HandleSelected for this.")
 			Else 
 				$tMDPath:=$tDocumentationPath+"Forms"+Folder separator:K24:12+$oItem.name+".md"
@@ -115,7 +116,7 @@ If (Form:C1466.lbResults.currentItem#Null:C1517)  //Make sure an item is selecte
 			End for 
 			
 			If ($fOptionDown=False:C215)
-				METHOD OPEN PATH:C1213("[trigger]/table_"+String:C10($lTableNumber))
+				METHOD OPEN PATH:C1213("[trigger]/"+$oItem.name)
 				CANCEL:C270
 			Else 
 				
