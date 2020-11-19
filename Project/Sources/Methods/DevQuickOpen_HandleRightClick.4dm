@@ -182,7 +182,9 @@ Case of
 		
 		
 	: ($tChoice="CreateDevDocBesideSelected")  //Creates a markdown file with a given name beside the currently selected DevDoc item. Then opens it for editing.
+		HIDE WINDOW:C436
 		$tFileName:=Request:C163("Enter the name of the markdown file you would like to create.";"name.md";"Create";"Cancel")
+		SHOW WINDOW:C435
 		If ((OK=1) & ($tFileName#""))
 			  //Make sure it has an extension
 			If (Position:C15(".md";$tFileName)#(Length:C16($tFileName)-2))

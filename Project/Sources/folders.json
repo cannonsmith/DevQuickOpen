@@ -1,32 +1,1 @@
-﻿{
-	"Developer Quick Open": {
-		"methods": [
-			"Compiler_DevQuickOpen",
-			"DevQuickOpen__Readme",
-			"DevQuickOpen_BeginHandler",
-			"DevQuickOpen_BuildMasterList",
-			"DevQuickOpen_EndHandler",
-			"DevQuickOpen_EventHandler",
-			"DevQuickOpen_HandleRightClick",
-			"DevQuickOpen_HandleSelected",
-			"DevQuickOpen_IsHandlerRunning",
-			"DevQuickOpen_OnMasterListUpdate",
-			"DevQuickOpen_OnSearch",
-			"DevQuickOpen_OpenWindow",
-			"DevQuickOpen_P",
-			"DevQuickOpen_Worker"
-		],
-		"forms": [
-			"DevQuickOpen"
-		]
-	},
-	"Shared Objects": {
-		"methods": [
-			"Compiler_SOBJ",
-			"SOBJ__Readme",
-			"SOBJ_CopyCollectionTo",
-			"SOBJ_CopyObjectTo"
-		]
-	},
-	"trash": {}
-}
+﻿{	"Developer Quick Open": {		"methods": [			"Compiler_DevQuickOpen",			"DevQuickOpen__Readme",			"DevQuickOpen_BeginHandler",			"DevQuickOpen_BuildMasterList",			"DevQuickOpen_EndHandler",			"DevQuickOpen_EventHandler",			"DevQuickOpen_HandleRightClick",			"DevQuickOpen_HandleSelected",			"DevQuickOpen_IsHandlerRunning",			"DevQuickOpen_OnMasterListUpdate",			"DevQuickOpen_OnSearch",			"DevQuickOpen_OpenWindow",			"DevQuickOpen_P",			"DevQuickOpen_Worker"		],		"forms": [			"DevQuickOpen"		]	},	"Shared Objects": {		"methods": [			"Compiler_SOBJ",			"SOBJ__Readme",			"SOBJ_CopyCollectionTo",			"SOBJ_CopyObjectTo"		]	},	"trash": {}}

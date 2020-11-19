@@ -10,7 +10,7 @@ supported in interpreted mode which is the only mode this will ever run in.
 */
 
 C_LONGINT:C283($lThreshold)
-C_REAL:C285($rBegin;$rEnd)
+C_REAL:C285($rBegin; $rEnd)
 C_COLLECTION:C1488($cMasterList)
 
 /* You can use a threshold to tell the worker to not refresh again unless at least this many
@@ -23,19 +23,21 @@ list update over and over.
 $lThreshold:=0  //Milliseconds. 0 effectively ensures the list is rebuilt every time.
 
 
-  //Build a new master list if enough time has passed since the last one
+//Build a new master list if enough time has passed since the last one
 If ((Milliseconds:C459-Storage:C1525.devQuickOpen.lastRefresh)>$lThreshold)
 	
-	  //Build a new master list
+	DELAY PROCESS:C323(Current process:C322; 10)
+	
+	//Build a new master list
 	$rBegin:=Milliseconds:C459
-	$cMasterList:=DevQuickOpen_BuildMasterList 
+	$cMasterList:=DevQuickOpen_BuildMasterList
 	$rEnd:=Milliseconds:C459
 	
 	Use (Storage:C1525.devQuickOpen)
 		Use (Storage:C1525.devQuickOpen.masterList)
-			  //The following can be replaced with .copy() in v18 R3 or later which can copy to a shared collection.
-			  //Then there is no reliance on the two SOBJ_ methods.
-			SOBJ_CopyCollectionTo ($cMasterList;Storage:C1525.devQuickOpen.masterList)
+			//The following can be replaced with .copy() in v18 R3 or later which can copy to a shared collection.
+			//Then there is no reliance on the two SOBJ_ methods.
+			SOBJ_CopyCollectionTo($cMasterList; Storage:C1525.devQuickOpen.masterList)
 		End use 
 		Storage:C1525.devQuickOpen.lastRefresh:=Milliseconds:C459
 		Storage:C1525.devQuickOpen.refreshMilliseconds:=$rEnd-$rBegin
@@ -44,11 +46,11 @@ If ((Milliseconds:C459-Storage:C1525.devQuickOpen.lastRefresh)>$lThreshold)
 End if 
 
 
-  //Record that we are done refreshing
+//Record that we are done refreshing
 Use (Storage:C1525.devQuickOpen)
 	Storage:C1525.devQuickOpen.isRefreshing:=False:C215
 End use 
 
 
-  //Now let the window know the master list is available
-CALL FORM:C1391(Storage:C1525.devQuickOpen.winRef;"DevQuickOpen_OnMasterListUpdate")
+//Now let the window know the master list is available
+CALL FORM:C1391(Storage:C1525.devQuickOpen.winRef; "DevQuickOpen_OnMasterListUpdate")
