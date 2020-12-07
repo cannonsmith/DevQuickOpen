@@ -95,7 +95,7 @@ Case of
 						End if 
 					End if 
 				End for 
-				$tItemsPath:=$tSourcesPath+"DatabaseMethods"+Folder separator:K24:12
+				$tItemsPath:=$tSourcesPath+"Triggers"+Folder separator:K24:12
 				$tFilePath:=$tItemsPath+"table_"+String:C10($lTableNumber)+".4dm"
 				SHOW ON DISK:C922($tFilePath)
 				
@@ -143,7 +143,7 @@ Case of
 						End if 
 					End if 
 				End for 
-				$tItemsPath:=$tDocumentationPath+"DatabaseMethods"+Folder separator:K24:12
+				$tItemsPath:=$tDocumentationPath+"Triggers"+Folder separator:K24:12
 				$tFilePath:=$tItemsPath+"table"+String:C10($lTableNumber)+".md"
 				SHOW ON DISK:C922($tFilePath)
 				
