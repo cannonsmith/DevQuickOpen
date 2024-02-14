@@ -1,6 +1,6 @@
 Case of 
-	: (Form event code:C388=On After Edit:K2:43)
-		Form:C1466.search:=Get edited text:C655
-		DevQuickOpen_OnSearch 
+	: (Form event code=On After Edit)
+		Form.search:=Get edited text
+		DevQuickOpen_OnSearch
 		
 End case 

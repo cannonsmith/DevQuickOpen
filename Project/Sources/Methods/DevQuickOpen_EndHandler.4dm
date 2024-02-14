@@ -1,4 +1,4 @@
-//%attributes = {}
-If (Method called on event:C705="DevQuickOpen_EventHandler")
-	ON EVENT CALL:C190("")
+//%attributes = {"folder":"Developer Quick Open","lang":"en"}
+If (Method called on event="DevQuickOpen_EventHandler")
+	ON EVENT CALL("")
 End if 

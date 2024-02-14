@@ -1,1 +1,1 @@
-DevQuickOpen_BeginHandler 
+DevQuickOpen_BeginHandler

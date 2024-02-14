@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"folder":"Developer Quick Open","lang":"en"}
 /* When this event handler is installed, it listens for Option-Space and invokes the
 Quick Open developer window. See documentation for the ON EVENT CALL command for
 information and examples on how to listen for different kinds of keystrokes if
@@ -14,6 +14,6 @@ keystroke to something else.
 */
 
 If (KeyCode=202)  //Option-Space
-	FILTER EVENT:C321  //Don't let 4D will also get this event
-	DevQuickOpen_OpenWindow 
+	FILTER EVENT  //Don't let 4D will also get this event
+	DevQuickOpen_OpenWindow
 End if 

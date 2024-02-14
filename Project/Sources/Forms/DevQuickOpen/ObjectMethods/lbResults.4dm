@@ -1,15 +1,15 @@
 Case of 
-	: (Form event code:C388=On Double Clicked:K2:5)
-		If ((Macintosh option down:C545=True:C214) | (Windows Alt down:C563=True:C214))
-			DevQuickOpen_HandleSelected (True:C214)
+	: (Form event code=On Double Clicked)
+		If ((Macintosh option down=True) | (Windows Alt down=True))
+			DevQuickOpen_HandleSelected(True)
 		Else 
-			DevQuickOpen_HandleSelected (False:C215)
+			DevQuickOpen_HandleSelected(False)
 		End if 
 		
-	: (Form event code:C388=On Clicked:K2:4)
-		If ((Right click:C712=True:C214) | (Contextual click:C713=True:C214) | (Macintosh option down:C545=True:C214))
-			If (Form:C1466.lbResults.currentItem#Null:C1517)
-				DevQuickOpen_HandleRightClick 
+	: (Form event code=On Clicked)
+		If ((Right click=True) | (Contextual click=True) | (Macintosh option down=True))
+			If (Form.lbResults.currentItem#Null)
+				DevQuickOpen_HandleRightClick
 			End if 
 		End if 
 		

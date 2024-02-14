@@ -1,2 +1,2 @@
-//%attributes = {}
-ON EVENT CALL:C190("DevQuickOpen_EventHandler";"$DevQuickOpenListener")
+//%attributes = {"folder":"Developer Quick Open","lang":"en"}
+ON EVENT CALL("DevQuickOpen_EventHandler"; "$DevQuickOpenListener")

@@ -2,4 +2,4 @@
 item to be opened.
 */
 
-DevQuickOpen_HandleSelected (False:C215)
+DevQuickOpen_HandleSelected(False)

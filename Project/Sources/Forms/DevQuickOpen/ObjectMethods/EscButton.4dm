@@ -2,13 +2,13 @@
 Hitting it again closes the window.
 */
 
-If (Form:C1466.search="")
+If (Form.search="")
 	
-	CANCEL:C270
+	CANCEL
 	
 Else 
 	
-	Form:C1466.search:=""
-	DevQuickOpen_OnSearch 
+	Form.search:=""
+	DevQuickOpen_OnSearch
 	
 End if 

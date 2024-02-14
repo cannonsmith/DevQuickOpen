@@ -1,10 +1,10 @@
-C_LONGINT:C283($lSelected;$lCount)
+C_LONGINT($lSelected; $lCount)
 
-$lSelected:=Form:C1466.lbResults.itemPosition
-$lCount:=Form:C1466.lbResults.display.length
+$lSelected:=Form.lbResults.itemPosition
+$lCount:=Form.lbResults.display.length
 
 If (($lSelected>1) & ($lSelected<=$lCount))
 	$lSelected:=$lSelected-1
-	LISTBOX SELECT ROW:C912(*;"lbResults";$lSelected;lk replace selection:K53:1)
-	OBJECT SET SCROLL POSITION:C906(*;"lbResults";$lSelected)
+	LISTBOX SELECT ROW(*; "lbResults"; $lSelected; lk replace selection)
+	OBJECT SET SCROLL POSITION(*; "lbResults"; $lSelected)
 End if 

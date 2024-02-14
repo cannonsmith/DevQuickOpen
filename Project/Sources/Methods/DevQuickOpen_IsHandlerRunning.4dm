@@ -1,10 +1,10 @@
-//%attributes = {}
+//%attributes = {"folder":"Developer Quick Open","lang":"en"}
 /* Sometimes you may want to know if the handler is running or not. This method
 will let you know.
 */
 
-C_BOOLEAN:C305($0;$fIsRunning)
+C_BOOLEAN($0; $fIsRunning)
 
-$fIsRunning:=Choose:C955(Method called on event:C705="DevQuickOpen_EventHandler";True:C214;False:C215)
+$fIsRunning:=Choose(Method called on event="DevQuickOpen_EventHandler"; True; False)
 
 $0:=$fIsRunning

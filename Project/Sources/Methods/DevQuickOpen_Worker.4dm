@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"folder":"Developer Quick Open","lang":"en"}
 /* This method is run in a worker and is called the same time the Quick Open window is opening.
 Its job is to decide whether to refresh the master list and do the refreshing if needed. It
 then calls the window to know it is done. The window will use the last master list until the
@@ -9,9 +9,9 @@ BTW, there is no point in having this method run in a preemptive process because
 supported in interpreted mode which is the only mode this will ever run in.
 */
 
-C_LONGINT:C283($lThreshold)
-C_REAL:C285($rBegin; $rEnd)
-C_COLLECTION:C1488($cMasterList)
+C_LONGINT($lThreshold)
+C_REAL($rBegin; $rEnd)
+C_COLLECTION($cMasterList)
 
 /* You can use a threshold to tell the worker to not refresh again unless at least this many
 milliseconds have passed since the last refresh. On small databases, this probably doesn't
@@ -24,33 +24,33 @@ $lThreshold:=0  //Milliseconds. 0 effectively ensures the list is rebuilt every 
 
 
 //Build a new master list if enough time has passed since the last one
-If ((Milliseconds:C459-Storage:C1525.devQuickOpen.lastRefresh)>$lThreshold)
+If ((Milliseconds-Storage.devQuickOpen.lastRefresh)>$lThreshold)
 	
-	DELAY PROCESS:C323(Current process:C322; 10)
+	DELAY PROCESS(Current process; 10)
 	
 	//Build a new master list
-	$rBegin:=Milliseconds:C459
+	$rBegin:=Milliseconds
 	$cMasterList:=DevQuickOpen_BuildMasterList
-	$rEnd:=Milliseconds:C459
+	$rEnd:=Milliseconds
 	
-	Use (Storage:C1525.devQuickOpen)
-		Use (Storage:C1525.devQuickOpen.masterList)
+	Use (Storage.devQuickOpen)
+		Use (Storage.devQuickOpen.masterList)
 			//The following can be replaced with .copy() in v18 R3 or later which can copy to a shared collection.
 			//Then there is no reliance on the two SOBJ_ methods.
-			SOBJ_CopyCollectionTo($cMasterList; Storage:C1525.devQuickOpen.masterList)
+			SOBJ_CopyCollectionTo($cMasterList; Storage.devQuickOpen.masterList)
 		End use 
-		Storage:C1525.devQuickOpen.lastRefresh:=Milliseconds:C459
-		Storage:C1525.devQuickOpen.refreshMilliseconds:=$rEnd-$rBegin
+		Storage.devQuickOpen.lastRefresh:=Milliseconds
+		Storage.devQuickOpen.refreshMilliseconds:=$rEnd-$rBegin
 	End use 
 	
 End if 
 
 
 //Record that we are done refreshing
-Use (Storage:C1525.devQuickOpen)
-	Storage:C1525.devQuickOpen.isRefreshing:=False:C215
+Use (Storage.devQuickOpen)
+	Storage.devQuickOpen.isRefreshing:=False
 End use 
 
 
 //Now let the window know the master list is available
-CALL FORM:C1391(Storage:C1525.devQuickOpen.winRef; "DevQuickOpen_OnMasterListUpdate")
+CALL FORM(Storage.devQuickOpen.winRef; "DevQuickOpen_OnMasterListUpdate")
